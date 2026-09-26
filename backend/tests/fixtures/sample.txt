@@ -1,0 +1,12 @@
+1. Executive Summary
+
+This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.
+
+2. Architecture
+
+The architecture combines dense vector retrieval, lexical BM25 matching, and structure-aware chunking.
+It provides high precision across complex multi-document queries.
+
+3. Conclusion
+
+All claims are verified with source page and section citations.

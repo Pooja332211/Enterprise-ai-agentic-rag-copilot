@@ -1,0 +1,8 @@
+Metric,Base_Model,QLoRA_Model,Description
+"Evidence Grounding Score","1.0000","N/A (Pending GPU training)","Proportion of statements directly supported by evidence context"
+"Citation Validity Rate","100.00%","N/A (Pending GPU training)","Proportion of cited chunk IDs existing in evidence set"
+"Citation Coverage Rate","100.00%","N/A (Pending GPU training)","Proportion of factual claims mapped to explicit citations"
+"Unsupported Claim Rate","0.00%","N/A (Pending GPU training)","Proportion of claims ungrounded in evidence (hallucinations)"
+"Abstention Accuracy","100.00%","N/A (Pending GPU training)","Accuracy in refusing out-of-domain unanswerable queries"
+"Mean Generation Latency","0.62 ms","N/A (Pending GPU training)","Mean generation stage execution time"
+"Reference Token Overlap (Token F1)","0.3294","N/A (Pending GPU training)","Lexical alignment with authoritative reference answers"

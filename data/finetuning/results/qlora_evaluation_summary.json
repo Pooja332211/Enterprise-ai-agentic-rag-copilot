@@ -1,0 +1,52 @@
+{
+  "dataset_version": "1.0.0",
+  "timestamp": "2026-09-25T08:32:45.997348+00:00",
+  "base_model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapted_model_name": "Qwen/Qwen2.5-1.5B-Instruct + QLoRA (Adapter not trained)",
+  "adapted_model_available": false,
+  "comparison_table": [
+    {
+      "metric": "Evidence Grounding Score",
+      "base_model": "1.0000",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Proportion of statements directly supported by evidence context"
+    },
+    {
+      "metric": "Citation Validity Rate",
+      "base_model": "100.00%",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Proportion of cited chunk IDs existing in evidence set"
+    },
+    {
+      "metric": "Citation Coverage Rate",
+      "base_model": "100.00%",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Proportion of factual claims mapped to explicit citations"
+    },
+    {
+      "metric": "Unsupported Claim Rate",
+      "base_model": "0.00%",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Proportion of claims ungrounded in evidence (hallucinations)"
+    },
+    {
+      "metric": "Abstention Accuracy",
+      "base_model": "100.00%",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Accuracy in refusing out-of-domain unanswerable queries"
+    },
+    {
+      "metric": "Mean Generation Latency",
+      "base_model": "0.62 ms",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Mean generation stage execution time"
+    },
+    {
+      "metric": "Reference Token Overlap (Token F1)",
+      "base_model": "0.3294",
+      "qlora_model": "N/A (Pending GPU training)",
+      "description": "Lexical alignment with authoritative reference answers"
+    }
+  ],
+  "notes": "Base model evaluated on Milestone 6 benchmark. QLoRA adapted weights not present because training requires CUDA-capable GPU hardware."
+}

@@ -1,0 +1,5 @@
+Configuration,Recall@5,Precision@5,MRR,NDCG@5,Mean_Latency_ms
+Dense,0.9286,0.2286,0.8571,0.8501,14.39
+BM25,1.0000,0.2429,0.9286,0.9460,0.60
+Hybrid RRF,1.0000,0.2429,0.8929,0.9094,14.96
+Hybrid + Reranker,1.0000,0.2429,0.8810,0.9160,2392.54

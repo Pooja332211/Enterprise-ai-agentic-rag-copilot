@@ -1,0 +1,238 @@
+{
+  "version": "1.0.0",
+  "dataset_name": "Enterprise AI Copilot Controlled Evaluation Benchmark",
+  "description": "Standardized, version-controlled evaluation benchmark for enterprise document retrieval, grounded QA, citation verification, and abstention.",
+  "created_at": "2026-09-25T12:00:00Z",
+  "document_corpus": [
+    {
+      "filename": "sample.pdf",
+      "format": "pdf",
+      "title": "Executive Summary & Methodology Report",
+      "description": "Two-page PDF with physical page boundaries and section headings."
+    },
+    {
+      "filename": "sample.docx",
+      "format": "docx",
+      "title": "Research Findings Report",
+      "description": "DOCX report with heading styles, methodology paragraph, and tabular metrics."
+    },
+    {
+      "filename": "sample.md",
+      "format": "markdown",
+      "title": "Enterprise Copilot Specification",
+      "description": "Markdown specification covering overview, core capabilities, code blocks, and limitations."
+    },
+    {
+      "filename": "sample.html",
+      "format": "html",
+      "title": "Enterprise Knowledge Platform Specs",
+      "description": "HTML document with supported formats list and benchmark accuracy table."
+    },
+    {
+      "filename": "sample.txt",
+      "format": "text",
+      "title": "Executive Summary and Architecture",
+      "description": "Plain text document with executive summary, architecture description, and conclusion."
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "q_fact_01",
+      "query": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+      "category": "factual_lookup",
+      "difficulty": "easy",
+      "relevant_document_filenames": ["sample.html"],
+      "relevant_section_paths": ["Enterprise Knowledge Platform > Benchmark Results", "Benchmark Results"],
+      "expected_answer": "Hybrid RAG achieved 94.2% accuracy in the benchmark results table.",
+      "expected_abstention": false,
+      "notes": "Exact factual lookup targeting table row in sample.html."
+    },
+    {
+      "query_id": "q_fact_02",
+      "query": "What is the NDCG@10 metric score reported in the research findings report?",
+      "category": "factual_lookup",
+      "difficulty": "easy",
+      "relevant_document_filenames": ["sample.docx"],
+      "relevant_section_paths": ["Research Findings Report > Methodology", "Methodology"],
+      "expected_answer": "The NDCG@10 score reported is 0.89.",
+      "expected_abstention": false,
+      "notes": "Exact factual lookup targeting table in sample.docx."
+    },
+    {
+      "query_id": "q_fact_03",
+      "query": "What future capability is required for scanned documents according to the limitations?",
+      "category": "factual_lookup",
+      "difficulty": "easy",
+      "relevant_document_filenames": ["sample.md"],
+      "relevant_section_paths": ["Enterprise Copilot Specification > Limitations", "Limitations"],
+      "expected_answer": "Scanned documents require future OCR capabilities.",
+      "expected_abstention": false,
+      "notes": "Exact factual lookup targeting subsection in sample.md."
+    },
+    {
+      "query_id": "q_sec_01",
+      "query": "What does the Executive Summary section state in the plain text specification?",
+      "category": "section_lookup",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.txt"],
+      "relevant_section_paths": ["1. Executive Summary", "Executive Summary"],
+      "expected_answer": "The Executive Summary states that this is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+      "expected_abstention": false,
+      "notes": "Section-specific lookup targeting Section 1 in sample.txt."
+    },
+    {
+      "query_id": "q_sec_02",
+      "query": "What content is located under Methodology on page 2 of the PDF document?",
+      "category": "section_lookup",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.pdf"],
+      "relevant_section_paths": ["2. Methodology", "Methodology"],
+      "expected_answer": "Page 2 under Methodology contains: This is page 2 content.",
+      "expected_abstention": false,
+      "notes": "Section and page-specific lookup targeting page 2 of sample.pdf."
+    },
+    {
+      "query_id": "q_sec_03",
+      "query": "What is described in the Overview section of the copilot specification?",
+      "category": "section_lookup",
+      "difficulty": "easy",
+      "relevant_document_filenames": ["sample.md"],
+      "relevant_section_paths": ["Enterprise Copilot Specification > Overview", "Overview"],
+      "expected_answer": "The Overview describes that the system provides grounded answers with source citations.",
+      "expected_abstention": false,
+      "notes": "Section-specific lookup targeting Overview in sample.md."
+    },
+    {
+      "query_id": "q_tech_01",
+      "query": "def query_copilot(prompt: str) -> str return 'Answer with citations'",
+      "category": "technical_keyword",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.md"],
+      "relevant_section_paths": ["Enterprise Copilot Specification > Core Capabilities", "Core Capabilities"],
+      "expected_answer": "The specification provides a python code example: def query_copilot(prompt: str) -> str: return 'Answer with citations'.",
+      "expected_abstention": false,
+      "notes": "Technical code snippet keyword query targeting fenced code block in sample.md."
+    },
+    {
+      "query_id": "q_tech_02",
+      "query": "NDCG@10 0.89 50 benchmark queries",
+      "category": "technical_keyword",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.docx"],
+      "relevant_section_paths": ["Research Findings Report > Methodology", "Methodology"],
+      "expected_answer": "Evaluated 50 benchmark queries across dense and lexical retrieval modes with NDCG@10 score of 0.89.",
+      "expected_abstention": false,
+      "notes": "Technical keywords and metrics query targeting sample.docx."
+    },
+    {
+      "query_id": "q_tech_03",
+      "query": "Reciprocal rank fusion and citation verification agent",
+      "category": "technical_keyword",
+      "difficulty": "easy",
+      "relevant_document_filenames": ["sample.md"],
+      "relevant_section_paths": ["Enterprise Copilot Specification > Core Capabilities", "Core Capabilities"],
+      "expected_answer": "Core capabilities include hybrid dense and sparse search, reciprocal rank fusion, and citation verification agent.",
+      "expected_abstention": false,
+      "notes": "Exact algorithm and architectural terms targeting sample.md."
+    },
+    {
+      "query_id": "q_sem_01",
+      "query": "How does the platform combine diverse search mechanisms to achieve high precision?",
+      "category": "semantic_paraphrase",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.txt"],
+      "relevant_section_paths": ["2. Architecture", "Architecture"],
+      "expected_answer": "The architecture combines dense vector retrieval, lexical BM25 matching, and structure-aware chunking to provide high precision across complex multi-document queries.",
+      "expected_abstention": false,
+      "notes": "Paraphrased conceptual query targeting architecture section in sample.txt."
+    },
+    {
+      "query_id": "q_sem_02",
+      "query": "What types of enterprise file extensions and document layouts can be processed?",
+      "category": "semantic_paraphrase",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.html"],
+      "relevant_section_paths": ["Enterprise Knowledge Platform > Supported Formats", "Supported Formats"],
+      "expected_answer": "Supported formats include PDF documents with page citations, DOCX reports with heading styles, and Markdown and plain text specifications.",
+      "expected_abstention": false,
+      "notes": "Semantic conceptual query targeting format list in sample.html."
+    },
+    {
+      "query_id": "q_sem_03",
+      "query": "What scale of testing was performed during the research evaluation study?",
+      "category": "semantic_paraphrase",
+      "difficulty": "medium",
+      "relevant_document_filenames": ["sample.docx"],
+      "relevant_section_paths": ["Research Findings Report > Methodology", "Methodology"],
+      "expected_answer": "The study evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+      "expected_abstention": false,
+      "notes": "Paraphrased question targeting methodology in sample.docx."
+    },
+    {
+      "query_id": "q_multi_01",
+      "query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+      "category": "multi_document",
+      "difficulty": "hard",
+      "relevant_document_filenames": ["sample.txt", "sample.html", "sample.docx"],
+      "relevant_section_paths": ["2. Architecture", "Benchmark Results", "Methodology"],
+      "expected_answer": "The system utilizes dense vector retrieval and lexical BM25 matching, achieving 94.2% accuracy for Hybrid RAG (compared to 81.5% for Dense Only) and an NDCG@10 score of 0.89 across 50 queries.",
+      "expected_abstention": false,
+      "notes": "Multi-document synthesis query requiring cross-reference across sample.txt, sample.html, and sample.docx."
+    },
+    {
+      "query_id": "q_multi_02",
+      "query": "How is citation verification and grounded claim validation handled across the documents?",
+      "category": "multi_document",
+      "difficulty": "hard",
+      "relevant_document_filenames": ["sample.txt", "sample.md"],
+      "relevant_section_paths": ["3. Conclusion", "Core Capabilities", "Overview"],
+      "expected_answer": "All claims are verified with source page and section citations using a dedicated citation verification agent.",
+      "expected_abstention": false,
+      "notes": "Multi-document query spanning sample.txt and sample.md."
+    },
+    {
+      "query_id": "q_noans_01",
+      "query": "What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+      "category": "no_answer",
+      "difficulty": "easy",
+      "relevant_document_filenames": [],
+      "relevant_section_paths": [],
+      "expected_answer": null,
+      "expected_abstention": true,
+      "notes": "Ungrounded query with zero evidence. System must abstain and indicate insufficient evidence."
+    },
+    {
+      "query_id": "q_noans_02",
+      "query": "What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+      "category": "no_answer",
+      "difficulty": "easy",
+      "relevant_document_filenames": [],
+      "relevant_section_paths": [],
+      "expected_answer": null,
+      "expected_abstention": true,
+      "notes": "Financial ungrounded query. System must abstain and avoid hallucination."
+    },
+    {
+      "query_id": "q_noans_03",
+      "query": "Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+      "category": "no_answer",
+      "difficulty": "easy",
+      "relevant_document_filenames": [],
+      "relevant_section_paths": [],
+      "expected_answer": null,
+      "expected_abstention": true,
+      "notes": "Robotics domain query absent from corpus. System must trigger insufficient_evidence=True."
+    },
+    {
+      "query_id": "q_noans_04",
+      "query": "What are the exact Kubernetes Helm chart values for the GPU ray cluster deployment?",
+      "category": "no_answer",
+      "difficulty": "easy",
+      "relevant_document_filenames": [],
+      "relevant_section_paths": [],
+      "expected_answer": null,
+      "expected_abstention": true,
+      "notes": "Infrastructure query absent from corpus. System must abstain."
+    }
+  ]
+}

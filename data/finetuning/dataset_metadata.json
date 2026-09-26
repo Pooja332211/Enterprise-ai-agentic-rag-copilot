@@ -1,0 +1,24 @@
+{
+  "dataset_name": "Enterprise AI Copilot Fine-tuning Dataset",
+  "version": "1.0.0",
+  "created_at": "2026-09-25T08:28:12.021650+00:00",
+  "description": "Curated domain-adaptation instruction dataset with grounded answers, citations, and abstentions.",
+  "source_corpus": [
+    "sample.pdf",
+    "sample.docx",
+    "sample.md",
+    "sample.html",
+    "sample.txt"
+  ],
+  "total_examples": 30,
+  "train_examples": 24,
+  "validation_examples": 6,
+  "train_file": "data\\finetuning\\train.jsonl",
+  "validation_file": "data\\finetuning\\validation.jsonl",
+  "dataset_sha256": "7508c2879d6560a147220769663f120d0f575dd25690b86df1081c1e5b3695a6",
+  "leakage_check": {
+    "status": "PASSED",
+    "benchmark_queries_checked": 18,
+    "violations": 0
+  }
+}

@@ -1,0 +1,10 @@
+Stage,Mean_ms,Median_ms,P95_ms,Min_ms,Max_ms,Count
+Embedding Generation,41.90,46.14,78.77,12.09,78.77,18
+Dense Search,4.22,2.09,21.33,1.82,21.33,18
+BM25 Search,0.45,0.36,0.92,0.21,0.92,18
+Fusion,0.05,0.04,0.08,0.03,0.08,18
+Reranking,2731.13,2648.07,3465.24,2372.04,3465.24,18
+Context Assembly,2.68,0.60,38.36,0.38,38.36,18
+Generation,0.62,0.53,2.26,0.26,2.26,18
+Citation Verification,0.33,0.32,0.83,0.04,0.83,18
+Total Pipeline,2782.38,2702.20,3494.65,2423.55,3494.65,18

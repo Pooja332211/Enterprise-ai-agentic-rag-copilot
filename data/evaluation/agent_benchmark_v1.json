@@ -1,0 +1,108 @@
+{
+  "version": "1.0.0",
+  "dataset_name": "Enterprise AI Copilot Agentic Research Benchmark",
+  "description": "Controlled evaluation benchmark for LangGraph query decomposition, multi-subquery retrieval, evidence aggregation, sufficiency checking, iterative loops, and grounded answer synthesis.",
+  "created_at": "2026-09-25T14:30:00Z",
+  "queries": [
+    {
+      "query_id": "agent_fact_01",
+      "query": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+      "category": "simple_factual",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "relevant_document_filenames": ["sample.html"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["94.2%", "hybrid rag", "benchmark"]
+    },
+    {
+      "query_id": "agent_fact_02",
+      "query": "What is the NDCG@10 metric score reported in the research findings report?",
+      "category": "simple_factual",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "relevant_document_filenames": ["sample.docx"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["0.89", "ndcg@10"]
+    },
+    {
+      "query_id": "agent_fact_03",
+      "query": "What future capability is required for scanned documents according to the limitations?",
+      "category": "simple_factual",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "relevant_document_filenames": ["sample.md"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["scanned documents", "ocr"]
+    },
+    {
+      "query_id": "agent_comp_01",
+      "query": "Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results",
+      "category": "comparison",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "relevant_document_filenames": ["sample.html"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["94.2%", "81.5%", "hybrid rag", "dense only"]
+    },
+    {
+      "query_id": "agent_comp_02",
+      "query": "Compare the capabilities described in the Overview versus the Limitations in the copilot specification",
+      "category": "comparison",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "relevant_document_filenames": ["sample.md"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["overview", "limitations", "citations", "ocr"]
+    },
+    {
+      "query_id": "agent_multi_01",
+      "query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+      "category": "multi_document",
+      "expected_decomposition": true,
+      "expected_subqueries": 3,
+      "relevant_document_filenames": ["sample.txt", "sample.html", "sample.docx"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["dense", "bm25", "94.2%", "0.89"]
+    },
+    {
+      "query_id": "agent_multi_02",
+      "query": "How is citation verification and grounded claim validation handled across the documents?",
+      "category": "multi_document",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "relevant_document_filenames": ["sample.txt", "sample.md"],
+      "expected_abstention": false,
+      "expected_answer_keywords": ["citation verification agent", "citations", "claims"]
+    },
+    {
+      "query_id": "agent_noans_01",
+      "query": "What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+      "category": "no_answer",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "relevant_document_filenames": [],
+      "expected_abstention": true,
+      "expected_answer_keywords": ["not contain sufficient evidence"]
+    },
+    {
+      "query_id": "agent_noans_02",
+      "query": "What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+      "category": "no_answer",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "relevant_document_filenames": [],
+      "expected_abstention": true,
+      "expected_answer_keywords": ["not contain sufficient evidence"]
+    },
+    {
+      "query_id": "agent_noans_03",
+      "query": "Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+      "category": "no_answer",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "relevant_document_filenames": [],
+      "expected_abstention": true,
+      "expected_answer_keywords": ["not contain sufficient evidence"]
+    }
+  ]
+}

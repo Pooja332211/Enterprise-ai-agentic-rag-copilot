@@ -1,0 +1,1258 @@
+{
+  "dataset_name": "Enterprise AI Copilot Agentic Research Benchmark",
+  "dataset_version": "1.0.0",
+  "timestamp": "2026-09-25T09:22:35.977616+00:00",
+  "environment": {
+    "os": "Windows",
+    "machine": "AMD64",
+    "python_version": "3.11.9",
+    "framework": "LangGraph state machine",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "reranker_model": "BAAI/bge-reranker-base",
+    "llm_provider": "mock"
+  },
+  "metrics": {
+    "total_queries": 10,
+    "answerable_queries": 7,
+    "unanswerable_queries": 3,
+    "decomposition_accuracy": 1.0,
+    "sufficiency_accuracy": 1.0,
+    "abstention_accuracy": 1.0,
+    "grounding_rate": 1.0,
+    "citation_validity_rate": 1.0,
+    "total_citations_evaluated": 17,
+    "valid_citations_evaluated": 17,
+    "average_subqueries_per_query": 1.8,
+    "total_retrieval_calls": 13
+  },
+  "latency_profile_ms": {
+    "mean_pipeline_latency": 4884.67,
+    "mean_retrieval_latency": 31.05,
+    "mean_rerank_latency": 4836.61,
+    "mean_generation_latency": 0.79,
+    "mean_verification_latency": 0.54
+  },
+  "queries": [
+    {
+      "query_id": "agent_fact_01",
+      "query": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+      "category": "simple_factual",
+      "expected_decomposition": false,
+      "actual_decomposition": false,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+          "purpose": "Direct targeted retrieval for single-step query",
+          "parent_query": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+          "expected_document": null,
+          "priority": 1
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 5,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.35,
+        "query_planning_ms": 0.02,
+        "retrieval_ms": 17.27,
+        "reranking_ms": 2057.93,
+        "evidence_assembly_ms": 0.31,
+        "sufficiency_check_ms": 0.46,
+        "generation_ms": 1.1,
+        "citation_verification_ms": 0.49,
+        "total_pipeline_ms": 2127.45
+      },
+      "final_answer": "Benchmark Results. We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+          "output_summary": "Type=section_lookup, Decompose=False",
+          "duration_ms": 0.35,
+          "timestamp": "2026-09-25T09:21:47.170841+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: What is the accuracy of Hybrid RAG reported in the benchmark results table?, NeedsDecomposition=False",
+          "output_summary": "Generated 1 sub-queries: ['SQ-1']",
+          "duration_ms": 0.02,
+          "timestamp": "2026-09-25T09:21:47.170841+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1']",
+          "output_summary": "Retrieved 6 total candidate chunks",
+          "duration_ms": 17.27,
+          "timestamp": "2026-09-25T09:21:47.188336+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 1 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 2057.93,
+          "timestamp": "2026-09-25T09:21:49.247988+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 1 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.31,
+          "timestamp": "2026-09-25T09:21:49.249983+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 1 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.46,
+          "timestamp": "2026-09-25T09:21:49.251129+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (2116 chars, 5 chunks)",
+          "output_summary": "Generated answer (94 chars, 2 claims)",
+          "duration_ms": 1.1,
+          "timestamp": "2026-09-25T09:21:49.253346+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 5 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.49,
+          "timestamp": "2026-09-25T09:21:49.255063+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_fact_02",
+      "query": "What is the NDCG@10 metric score reported in the research findings report?",
+      "category": "simple_factual",
+      "expected_decomposition": false,
+      "actual_decomposition": false,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "What is the NDCG@10 metric score reported in the research findings report?",
+          "purpose": "Direct targeted retrieval for single-step query",
+          "parent_query": "What is the NDCG@10 metric score reported in the research findings report?",
+          "expected_document": null,
+          "priority": 1
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 5,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.05,
+        "query_planning_ms": 0.03,
+        "retrieval_ms": 40.87,
+        "reranking_ms": 1946.11,
+        "evidence_assembly_ms": 0.28,
+        "sufficiency_check_ms": 0.32,
+        "generation_ms": 1.09,
+        "citation_verification_ms": 0.62,
+        "total_pipeline_ms": 1997.02
+      },
+      "final_answer": "Research Findings Report. Executive Summary.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: What is the NDCG@10 metric score reported in the research findings report?",
+          "output_summary": "Type=technical_keyword, Decompose=False",
+          "duration_ms": 0.05,
+          "timestamp": "2026-09-25T09:21:49.256694+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: What is the NDCG@10 metric score reported in the research findings report?, NeedsDecomposition=False",
+          "output_summary": "Generated 1 sub-queries: ['SQ-1']",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:21:49.257213+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1']",
+          "output_summary": "Retrieved 6 total candidate chunks",
+          "duration_ms": 40.87,
+          "timestamp": "2026-09-25T09:21:49.298177+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 1 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 1946.11,
+          "timestamp": "2026-09-25T09:21:51.245023+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 1 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.28,
+          "timestamp": "2026-09-25T09:21:51.246016+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 1 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.32,
+          "timestamp": "2026-09-25T09:21:51.247553+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (2116 chars, 5 chunks)",
+          "output_summary": "Generated answer (44 chars, 2 claims)",
+          "duration_ms": 1.09,
+          "timestamp": "2026-09-25T09:21:51.250298+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 5 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.62,
+          "timestamp": "2026-09-25T09:21:51.252214+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_fact_03",
+      "query": "What future capability is required for scanned documents according to the limitations?",
+      "category": "simple_factual",
+      "expected_decomposition": false,
+      "actual_decomposition": false,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "What future capability is required for scanned documents according to the limitations?",
+          "purpose": "Direct targeted retrieval for single-step query",
+          "parent_query": "What future capability is required for scanned documents according to the limitations?",
+          "expected_document": null,
+          "priority": 1
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 5,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.05,
+        "query_planning_ms": 0.01,
+        "retrieval_ms": 25.33,
+        "reranking_ms": 2003.3,
+        "evidence_assembly_ms": 0.38,
+        "sufficiency_check_ms": 0.28,
+        "generation_ms": 0.98,
+        "citation_verification_ms": 0.59,
+        "total_pipeline_ms": 2038.32
+      },
+      "final_answer": "Scanned documents require future OCR capabilities. Executive Summary.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: What future capability is required for scanned documents according to the limitations?",
+          "output_summary": "Type=section_lookup, Decompose=False",
+          "duration_ms": 0.05,
+          "timestamp": "2026-09-25T09:21:51.253797+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: What future capability is required for scanned documents according to the limitations?, NeedsDecomposition=False",
+          "output_summary": "Generated 1 sub-queries: ['SQ-1']",
+          "duration_ms": 0.01,
+          "timestamp": "2026-09-25T09:21:51.254321+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1']",
+          "output_summary": "Retrieved 6 total candidate chunks",
+          "duration_ms": 25.33,
+          "timestamp": "2026-09-25T09:21:51.279835+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 1 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 2003.3,
+          "timestamp": "2026-09-25T09:21:53.283587+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 1 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.38,
+          "timestamp": "2026-09-25T09:21:53.285541+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 1 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.28,
+          "timestamp": "2026-09-25T09:21:53.286646+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (2114 chars, 5 chunks)",
+          "output_summary": "Generated answer (69 chars, 2 claims)",
+          "duration_ms": 0.98,
+          "timestamp": "2026-09-25T09:21:53.288926+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 5 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.59,
+          "timestamp": "2026-09-25T09:21:53.290136+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_comp_01",
+      "query": "Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results",
+      "category": "comparison",
+      "expected_decomposition": true,
+      "actual_decomposition": true,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "Details and specifications for benchmark accuracy of hybrid rag",
+          "purpose": "Retrieve evidence regarding benchmark accuracy of hybrid rag",
+          "parent_query": "Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results",
+          "expected_document": null,
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-2",
+          "sub_query_text": "Details and specifications for dense only retrieval in the benchmark results",
+          "purpose": "Retrieve evidence regarding dense only retrieval in the benchmark results",
+          "parent_query": "Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results",
+          "expected_document": null,
+          "priority": 1
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 6,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.05,
+        "query_planning_ms": 0.48,
+        "retrieval_ms": 24.5,
+        "reranking_ms": 3793.7,
+        "evidence_assembly_ms": 0.31,
+        "sufficiency_check_ms": 0.33,
+        "generation_ms": 0.97,
+        "citation_verification_ms": 0.37,
+        "total_pipeline_ms": 3827.87
+      },
+      "final_answer": "Benchmark Results. We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results",
+          "output_summary": "Type=comparison, Decompose=True",
+          "duration_ms": 0.05,
+          "timestamp": "2026-09-25T09:21:53.292464+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results, NeedsDecomposition=True",
+          "output_summary": "Generated 2 sub-queries: ['SQ-1', 'SQ-2']",
+          "duration_ms": 0.48,
+          "timestamp": "2026-09-25T09:21:53.293354+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1', 'SQ-2']",
+          "output_summary": "Retrieved 12 total candidate chunks",
+          "duration_ms": 24.5,
+          "timestamp": "2026-09-25T09:21:53.317653+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 2 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 3793.7,
+          "timestamp": "2026-09-25T09:21:57.112790+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 2 sub-queries",
+          "output_summary": "Deduplicated to 6 unique evidence chunks",
+          "duration_ms": 0.31,
+          "timestamp": "2026-09-25T09:21:57.113787+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 2 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.33,
+          "timestamp": "2026-09-25T09:21:57.114695+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (2344 chars, 6 chunks)",
+          "output_summary": "Generated answer (94 chars, 2 claims)",
+          "duration_ms": 0.97,
+          "timestamp": "2026-09-25T09:21:57.117787+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 6 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.37,
+          "timestamp": "2026-09-25T09:21:57.118913+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_comp_02",
+      "query": "Compare the capabilities described in the Overview versus the Limitations in the copilot specification",
+      "category": "comparison",
+      "expected_decomposition": true,
+      "actual_decomposition": true,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "Details and specifications for capabilities described in the overview",
+          "purpose": "Retrieve evidence regarding capabilities described in the overview",
+          "parent_query": "Compare the capabilities described in the Overview versus the Limitations in the copilot specification",
+          "expected_document": null,
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-2",
+          "sub_query_text": "Details and specifications for the limitations in the copilot specification",
+          "purpose": "Retrieve evidence regarding the limitations in the copilot specification",
+          "parent_query": "Compare the capabilities described in the Overview versus the Limitations in the copilot specification",
+          "expected_document": null,
+          "priority": 1
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 5,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.04,
+        "query_planning_ms": 0.05,
+        "retrieval_ms": 21.47,
+        "reranking_ms": 3789.75,
+        "evidence_assembly_ms": 0.46,
+        "sufficiency_check_ms": 0.43,
+        "generation_ms": 1.44,
+        "citation_verification_ms": 0.96,
+        "total_pipeline_ms": 3824.36
+      },
+      "final_answer": "Enterprise Copilot Specification. This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: Compare the capabilities described in the Overview versus the Limitations in the copilot specification",
+          "output_summary": "Type=comparison, Decompose=True",
+          "duration_ms": 0.04,
+          "timestamp": "2026-09-25T09:21:57.120551+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: Compare the capabilities described in the Overview versus the Limitations in the copilot specification, NeedsDecomposition=True",
+          "output_summary": "Generated 2 sub-queries: ['SQ-1', 'SQ-2']",
+          "duration_ms": 0.05,
+          "timestamp": "2026-09-25T09:21:57.121153+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1', 'SQ-2']",
+          "output_summary": "Retrieved 12 total candidate chunks",
+          "duration_ms": 21.47,
+          "timestamp": "2026-09-25T09:21:57.142587+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 2 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 3789.75,
+          "timestamp": "2026-09-25T09:22:00.933360+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 2 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.46,
+          "timestamp": "2026-09-25T09:22:00.935356+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 2 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.43,
+          "timestamp": "2026-09-25T09:22:00.936889+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (1971 chars, 5 chunks)",
+          "output_summary": "Generated answer (139 chars, 2 claims)",
+          "duration_ms": 1.44,
+          "timestamp": "2026-09-25T09:22:00.940772+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 5 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.96,
+          "timestamp": "2026-09-25T09:22:00.942994+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_multi_01",
+      "query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+      "category": "multi_document",
+      "expected_decomposition": true,
+      "actual_decomposition": true,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "What retrieval techniques are detailed in the architecture specification?",
+          "purpose": "Retrieve architecture retrieval components from specification",
+          "parent_query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+          "expected_document": "sample.txt",
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-2",
+          "sub_query_text": "What accuracy numbers are reported in the benchmark results table?",
+          "purpose": "Retrieve quantitative accuracy numbers from benchmark table",
+          "parent_query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+          "expected_document": "sample.html",
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-3",
+          "sub_query_text": "What evaluation metrics and benchmark query results are in the research report?",
+          "purpose": "Retrieve methodology metrics from research findings report",
+          "parent_query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+          "expected_document": "sample.docx",
+          "priority": 2
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 6,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.1,
+        "query_planning_ms": 0.08,
+        "retrieval_ms": 53.62,
+        "reranking_ms": 7586.38,
+        "evidence_assembly_ms": 0.46,
+        "sufficiency_check_ms": 0.42,
+        "generation_ms": 1.06,
+        "citation_verification_ms": 0.65,
+        "total_pipeline_ms": 7655.17
+      },
+      "final_answer": "We evaluated 50 benchmark queries across dense and lexical retrieval modes. DOCX reports with heading styles.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+          "output_summary": "Type=multi_document, Decompose=True",
+          "duration_ms": 0.1,
+          "timestamp": "2026-09-25T09:22:00.946251+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?, NeedsDecomposition=True",
+          "output_summary": "Generated 3 sub-queries: ['SQ-1', 'SQ-2', 'SQ-3']",
+          "duration_ms": 0.08,
+          "timestamp": "2026-09-25T09:22:00.947947+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1', 'SQ-2', 'SQ-3']",
+          "output_summary": "Retrieved 18 total candidate chunks",
+          "duration_ms": 53.62,
+          "timestamp": "2026-09-25T09:22:01.002789+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 3 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 7586.38,
+          "timestamp": "2026-09-25T09:22:08.590746+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 3 sub-queries",
+          "output_summary": "Deduplicated to 6 unique evidence chunks",
+          "duration_ms": 0.46,
+          "timestamp": "2026-09-25T09:22:08.592568+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 3 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.42,
+          "timestamp": "2026-09-25T09:22:08.593666+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (2374 chars, 6 chunks)",
+          "output_summary": "Generated answer (109 chars, 2 claims)",
+          "duration_ms": 1.06,
+          "timestamp": "2026-09-25T09:22:08.596685+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 6 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.65,
+          "timestamp": "2026-09-25T09:22:08.598355+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_multi_02",
+      "query": "How is citation verification and grounded claim validation handled across the documents?",
+      "category": "multi_document",
+      "expected_decomposition": true,
+      "actual_decomposition": true,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "Citation verification agent in core capabilities of copilot specification",
+          "purpose": "Retrieve citation agent details from markdown spec",
+          "parent_query": "How is citation verification and grounded claim validation handled across the documents?",
+          "expected_document": "sample.md",
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-2",
+          "sub_query_text": "All claims are verified with source page and section citations in conclusion",
+          "purpose": "Retrieve citation verification requirements from conclusion",
+          "parent_query": "How is citation verification and grounded claim validation handled across the documents?",
+          "expected_document": "sample.txt",
+          "priority": 1
+        }
+      ],
+      "expected_abstention": false,
+      "actual_abstention": false,
+      "status": "completed",
+      "grounded": true,
+      "iterations_used": 1,
+      "evidence_count": 6,
+      "claims_count": 2,
+      "citations_count": 2,
+      "verification_status": "verified",
+      "timings_ms": {
+        "query_analysis_ms": 0.09,
+        "query_planning_ms": 0.03,
+        "retrieval_ms": 24.8,
+        "reranking_ms": 5339.74,
+        "evidence_assembly_ms": 0.4,
+        "sufficiency_check_ms": 0.35,
+        "generation_ms": 1.25,
+        "citation_verification_ms": 0.77,
+        "total_pipeline_ms": 5377.67
+      },
+      "final_answer": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning. Citation verification agent.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: How is citation verification and grounded claim validation handled across the documents?",
+          "output_summary": "Type=multi_document, Decompose=True",
+          "duration_ms": 0.09,
+          "timestamp": "2026-09-25T09:22:08.601269+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: How is citation verification and grounded claim validation handled across the documents?, NeedsDecomposition=True",
+          "output_summary": "Generated 2 sub-queries: ['SQ-1', 'SQ-2']",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:22:08.602481+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1', 'SQ-2']",
+          "output_summary": "Retrieved 12 total candidate chunks",
+          "duration_ms": 24.8,
+          "timestamp": "2026-09-25T09:22:08.627844+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 2 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 5339.74,
+          "timestamp": "2026-09-25T09:22:13.969355+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 2 sub-queries",
+          "output_summary": "Deduplicated to 6 unique evidence chunks",
+          "duration_ms": 0.4,
+          "timestamp": "2026-09-25T09:22:13.970351+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 2 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=True (Confidence=0.95): Retrieved evidence provides complete coverage of query components.",
+          "duration_ms": 0.35,
+          "timestamp": "2026-09-25T09:22:13.971642+00:00"
+        },
+        {
+          "node": "generate",
+          "iteration": 1,
+          "input_summary": "Evidence text (2343 chars, 6 chunks)",
+          "output_summary": "Generated answer (134 chars, 2 claims)",
+          "duration_ms": 1.25,
+          "timestamp": "2026-09-25T09:22:13.975438+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 1,
+          "input_summary": "2 claims against 6 evidence chunks",
+          "output_summary": "Status: verified, Citations: 2",
+          "duration_ms": 0.77,
+          "timestamp": "2026-09-25T09:22:13.976948+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_noans_01",
+      "query": "What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+      "category": "no_answer",
+      "expected_decomposition": false,
+      "actual_decomposition": false,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+          "purpose": "Direct targeted retrieval for single-step query",
+          "parent_query": "What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+          "expected_document": null,
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-REF-2",
+          "sub_query_text": "Corpus does not contain relevant domain documentation. details architecture",
+          "purpose": "Iterative retrieval for missing information: Corpus does not contain releva",
+          "parent_query": "What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+          "expected_document": null,
+          "priority": 2
+        }
+      ],
+      "expected_abstention": true,
+      "actual_abstention": true,
+      "status": "abstained",
+      "grounded": false,
+      "iterations_used": 2,
+      "evidence_count": 6,
+      "claims_count": 0,
+      "citations_count": 1,
+      "verification_status": "unverified",
+      "timings_ms": {
+        "query_analysis_ms": 0.02,
+        "query_planning_ms": 0.02,
+        "retrieval_ms": 29.73,
+        "reranking_ms": 7467.9,
+        "evidence_assembly_ms": 0.63,
+        "sufficiency_check_ms": 0.14,
+        "citation_verification_ms": 0.27,
+        "total_pipeline_ms": 7512.49
+      },
+      "final_answer": "I cannot answer this question based on the provided documents. The documents do not contain sufficient evidence.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: What are the quantum teleportation encryption keys used in Section 9 of the security manual?",
+          "output_summary": "Type=no_answer, Decompose=False",
+          "duration_ms": 0.02,
+          "timestamp": "2026-09-25T09:22:13.978458+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: What are the quantum teleportation encryption keys used in Section 9 of the security manual?, NeedsDecomposition=False",
+          "output_summary": "Generated 1 sub-queries: ['SQ-1']",
+          "duration_ms": 0.02,
+          "timestamp": "2026-09-25T09:22:13.979463+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1']",
+          "output_summary": "Retrieved 6 total candidate chunks",
+          "duration_ms": 15.79,
+          "timestamp": "2026-09-25T09:22:13.995618+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 1 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 2657.11,
+          "timestamp": "2026-09-25T09:22:16.653737+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 1 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.32,
+          "timestamp": "2026-09-25T09:22:16.654721+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 1 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=False (Confidence=0.95): Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "duration_ms": 0.07,
+          "timestamp": "2026-09-25T09:22:16.656040+00:00"
+        },
+        {
+          "node": "refine_queries",
+          "iteration": 1,
+          "input_summary": "Missing information: ['Corpus does not contain relevant domain documentation.']",
+          "output_summary": "Generated 1 refined sub-queries for iteration 1",
+          "duration_ms": 0.06,
+          "timestamp": "2026-09-25T09:22:16.658252+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 1,
+          "input_summary": "Sub-queries to retrieve: ['SQ-REF-2']",
+          "output_summary": "Retrieved 11 total candidate chunks",
+          "duration_ms": 13.94,
+          "timestamp": "2026-09-25T09:22:16.672703+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 1,
+          "input_summary": "Reranking candidate pools across 2 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 4810.79,
+          "timestamp": "2026-09-25T09:22:21.484866+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 1,
+          "input_summary": "Evidence pools from 2 sub-queries",
+          "output_summary": "Deduplicated to 6 unique evidence chunks",
+          "duration_ms": 0.31,
+          "timestamp": "2026-09-25T09:22:21.485879+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 1,
+          "input_summary": "Assessing evidence for 2 sub-queries (Iteration 2)",
+          "output_summary": "Sufficient=False (Confidence=0.95): Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "duration_ms": 0.07,
+          "timestamp": "2026-09-25T09:22:21.487068+00:00"
+        },
+        {
+          "node": "abstain",
+          "iteration": 2,
+          "input_summary": "Query: What are the quantum teleportation encryption keys used in Section 9 of the security manual?, Reason: Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "output_summary": "Emitted standard non-hallucinated refusal",
+          "duration_ms": 0.0,
+          "timestamp": "2026-09-25T09:22:21.488724+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 2,
+          "input_summary": "0 claims against 6 evidence chunks",
+          "output_summary": "Status: unverified, Citations: 1",
+          "duration_ms": 0.27,
+          "timestamp": "2026-09-25T09:22:21.489330+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_noans_02",
+      "query": "What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+      "category": "no_answer",
+      "expected_decomposition": false,
+      "actual_decomposition": false,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+          "purpose": "Direct targeted retrieval for single-step query",
+          "parent_query": "What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+          "expected_document": null,
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-REF-2",
+          "sub_query_text": "Corpus does not contain relevant domain documentation. details architecture",
+          "purpose": "Iterative retrieval for missing information: Corpus does not contain releva",
+          "parent_query": "What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+          "expected_document": null,
+          "priority": 2
+        }
+      ],
+      "expected_abstention": true,
+      "actual_abstention": true,
+      "status": "abstained",
+      "grounded": false,
+      "iterations_used": 2,
+      "evidence_count": 6,
+      "claims_count": 0,
+      "citations_count": 1,
+      "verification_status": "unverified",
+      "timings_ms": {
+        "query_analysis_ms": 0.02,
+        "query_planning_ms": 0.03,
+        "retrieval_ms": 46.63,
+        "reranking_ms": 7262.43,
+        "evidence_assembly_ms": 0.69,
+        "sufficiency_check_ms": 0.18,
+        "citation_verification_ms": 0.45,
+        "total_pipeline_ms": 7325.87
+      },
+      "final_answer": "I cannot answer this question based on the provided documents. The documents do not contain sufficient evidence.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?",
+          "output_summary": "Type=no_answer, Decompose=False",
+          "duration_ms": 0.02,
+          "timestamp": "2026-09-25T09:22:21.491666+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?, NeedsDecomposition=False",
+          "output_summary": "Generated 1 sub-queries: ['SQ-1']",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:22:21.492214+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1']",
+          "output_summary": "Retrieved 6 total candidate chunks",
+          "duration_ms": 33.6,
+          "timestamp": "2026-09-25T09:22:21.525681+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 1 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 2824.96,
+          "timestamp": "2026-09-25T09:22:24.352695+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 1 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.36,
+          "timestamp": "2026-09-25T09:22:24.353688+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 1 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=False (Confidence=0.95): Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "duration_ms": 0.06,
+          "timestamp": "2026-09-25T09:22:24.355329+00:00"
+        },
+        {
+          "node": "refine_queries",
+          "iteration": 1,
+          "input_summary": "Missing information: ['Corpus does not contain relevant domain documentation.']",
+          "output_summary": "Generated 1 refined sub-queries for iteration 1",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:22:24.357086+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 1,
+          "input_summary": "Sub-queries to retrieve: ['SQ-REF-2']",
+          "output_summary": "Retrieved 11 total candidate chunks",
+          "duration_ms": 13.03,
+          "timestamp": "2026-09-25T09:22:24.370523+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 1,
+          "input_summary": "Reranking candidate pools across 2 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 4437.47,
+          "timestamp": "2026-09-25T09:22:28.809552+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 1,
+          "input_summary": "Evidence pools from 2 sub-queries",
+          "output_summary": "Deduplicated to 6 unique evidence chunks",
+          "duration_ms": 0.33,
+          "timestamp": "2026-09-25T09:22:28.810552+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 1,
+          "input_summary": "Assessing evidence for 2 sub-queries (Iteration 2)",
+          "output_summary": "Sufficient=False (Confidence=0.95): Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "duration_ms": 0.12,
+          "timestamp": "2026-09-25T09:22:28.811820+00:00"
+        },
+        {
+          "node": "abstain",
+          "iteration": 2,
+          "input_summary": "Query: What was the quarterly EBITDA revenue growth of the European cloud division for Q3 2025?, Reason: Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "output_summary": "Emitted standard non-hallucinated refusal",
+          "duration_ms": 0.0,
+          "timestamp": "2026-09-25T09:22:28.813994+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 2,
+          "input_summary": "0 claims against 6 evidence chunks",
+          "output_summary": "Status: unverified, Citations: 1",
+          "duration_ms": 0.45,
+          "timestamp": "2026-09-25T09:22:28.815310+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "agent_noans_03",
+      "query": "Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+      "category": "no_answer",
+      "expected_decomposition": false,
+      "actual_decomposition": false,
+      "sub_queries": [
+        {
+          "sub_query_id": "SQ-1",
+          "sub_query_text": "Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+          "purpose": "Direct targeted retrieval for single-step query",
+          "parent_query": "Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+          "expected_document": null,
+          "priority": 1
+        },
+        {
+          "sub_query_id": "SQ-REF-2",
+          "sub_query_text": "Corpus does not contain relevant domain documentation. details architecture",
+          "purpose": "Iterative retrieval for missing information: Corpus does not contain releva",
+          "parent_query": "Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+          "expected_document": null,
+          "priority": 2
+        }
+      ],
+      "expected_abstention": true,
+      "actual_abstention": true,
+      "status": "abstained",
+      "grounded": false,
+      "iterations_used": 2,
+      "evidence_count": 6,
+      "claims_count": 0,
+      "citations_count": 1,
+      "verification_status": "unverified",
+      "timings_ms": {
+        "query_analysis_ms": 0.03,
+        "query_planning_ms": 0.03,
+        "retrieval_ms": 26.29,
+        "reranking_ms": 7118.86,
+        "evidence_assembly_ms": 0.63,
+        "sufficiency_check_ms": 0.13,
+        "citation_verification_ms": 0.26,
+        "total_pipeline_ms": 7160.51
+      },
+      "final_answer": "I cannot answer this question based on the provided documents. The documents do not contain sufficient evidence.",
+      "execution_trace": [
+        {
+          "node": "analyze_query",
+          "iteration": 0,
+          "input_summary": "Query: Which reinforcement learning reward policy was configured for the industrial robotic arm?",
+          "output_summary": "Type=no_answer, Decompose=False",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:22:28.818354+00:00"
+        },
+        {
+          "node": "plan_query",
+          "iteration": 0,
+          "input_summary": "Query: Which reinforcement learning reward policy was configured for the industrial robotic arm?, NeedsDecomposition=False",
+          "output_summary": "Generated 1 sub-queries: ['SQ-1']",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:22:28.819457+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 0,
+          "input_summary": "Sub-queries to retrieve: ['SQ-1']",
+          "output_summary": "Retrieved 6 total candidate chunks",
+          "duration_ms": 13.0,
+          "timestamp": "2026-09-25T09:22:28.832132+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 0,
+          "input_summary": "Reranking candidate pools across 1 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 2521.3,
+          "timestamp": "2026-09-25T09:22:31.354569+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 0,
+          "input_summary": "Evidence pools from 1 sub-queries",
+          "output_summary": "Deduplicated to 5 unique evidence chunks",
+          "duration_ms": 0.29,
+          "timestamp": "2026-09-25T09:22:31.356568+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 0,
+          "input_summary": "Assessing evidence for 1 sub-queries (Iteration 1)",
+          "output_summary": "Sufficient=False (Confidence=0.95): Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "duration_ms": 0.06,
+          "timestamp": "2026-09-25T09:22:31.357285+00:00"
+        },
+        {
+          "node": "refine_queries",
+          "iteration": 1,
+          "input_summary": "Missing information: ['Corpus does not contain relevant domain documentation.']",
+          "output_summary": "Generated 1 refined sub-queries for iteration 1",
+          "duration_ms": 0.03,
+          "timestamp": "2026-09-25T09:22:31.358558+00:00"
+        },
+        {
+          "node": "retrieve",
+          "iteration": 1,
+          "input_summary": "Sub-queries to retrieve: ['SQ-REF-2']",
+          "output_summary": "Retrieved 11 total candidate chunks",
+          "duration_ms": 13.29,
+          "timestamp": "2026-09-25T09:22:31.372528+00:00"
+        },
+        {
+          "node": "rerank",
+          "iteration": 1,
+          "input_summary": "Reranking candidate pools across 2 sub-queries",
+          "output_summary": "Reranked top 5 per sub-query",
+          "duration_ms": 4597.56,
+          "timestamp": "2026-09-25T09:22:35.971018+00:00"
+        },
+        {
+          "node": "assemble_evidence",
+          "iteration": 1,
+          "input_summary": "Evidence pools from 2 sub-queries",
+          "output_summary": "Deduplicated to 6 unique evidence chunks",
+          "duration_ms": 0.34,
+          "timestamp": "2026-09-25T09:22:35.972630+00:00"
+        },
+        {
+          "node": "assess_sufficiency",
+          "iteration": 1,
+          "input_summary": "Assessing evidence for 2 sub-queries (Iteration 2)",
+          "output_summary": "Sufficient=False (Confidence=0.95): Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "duration_ms": 0.07,
+          "timestamp": "2026-09-25T09:22:35.972630+00:00"
+        },
+        {
+          "node": "abstain",
+          "iteration": 2,
+          "input_summary": "Query: Which reinforcement learning reward policy was configured for the industrial robotic arm?, Reason: Query classified as out-of-domain or ungrounded; evidence lacks topical relevance.",
+          "output_summary": "Emitted standard non-hallucinated refusal",
+          "duration_ms": 0.0,
+          "timestamp": "2026-09-25T09:22:35.975276+00:00"
+        },
+        {
+          "node": "verify_citations",
+          "iteration": 2,
+          "input_summary": "0 claims against 6 evidence chunks",
+          "output_summary": "Status: unverified, Citations: 1",
+          "duration_ms": 0.26,
+          "timestamp": "2026-09-25T09:22:35.976485+00:00"
+        }
+      ]
+    }
+  ]
+}

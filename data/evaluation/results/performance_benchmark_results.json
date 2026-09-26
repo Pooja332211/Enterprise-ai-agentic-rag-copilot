@@ -1,0 +1,149 @@
+{
+  "benchmark_metadata": {
+    "version": "1.0.0",
+    "dataset_name": "Enterprise AI Copilot Performance & Latency Benchmark",
+    "total_queries": 12,
+    "timestamp": "2026-09-25T13:47:51Z"
+  },
+  "latencies": {
+    "single_research_cold": {
+      "min": 552.25,
+      "mean": 982.94,
+      "max": 1411.03,
+      "p50": 631.63,
+      "p95": 1411.03,
+      "p99": 1411.03
+    },
+    "single_research_warm": {
+      "min": 6.08,
+      "mean": 7.31,
+      "max": 9.66,
+      "p50": 7.3,
+      "p95": 8.55,
+      "p99": 9.66
+    },
+    "agentic_research_cold": {
+      "min": 10.6,
+      "mean": 783.0,
+      "max": 3084.01,
+      "p50": 22.52,
+      "p95": 3084.01,
+      "p99": 3084.01
+    },
+    "agentic_research_warm": {
+      "min": 20.14,
+      "mean": 25.33,
+      "max": 38.07,
+      "p50": 23.59,
+      "p95": 34.15,
+      "p99": 38.07
+    }
+  },
+  "cache": {
+    "embedding": {
+      "name": "embedding",
+      "size": 21,
+      "current_size": 21,
+      "max_size": 20000,
+      "hits": 69,
+      "misses": 27,
+      "total_lookups": 96,
+      "hit_ratio": 0.7188,
+      "hit_rate_pct": 71.88,
+      "evictions": 0,
+      "invalidations": 6
+    },
+    "reranker": {
+      "name": "reranker",
+      "size": 126,
+      "current_size": 126,
+      "max_size": 20000,
+      "hits": 444,
+      "misses": 126,
+      "total_lookups": 570,
+      "hit_ratio": 0.7789,
+      "hit_rate_pct": 77.89,
+      "evictions": 0,
+      "invalidations": 0
+    }
+  },
+  "gates": {
+    "all_passed": true,
+    "critical_passed": true,
+    "total_gates": 7,
+    "passed_gates": 7,
+    "failed_gates": 0,
+    "results": [
+      {
+        "gate_name": "Retrieval Recall@5",
+        "metric_key": "recall_at_5",
+        "operator": ">=",
+        "threshold": 0.8,
+        "actual_value": 1.0,
+        "passed": true,
+        "critical": true,
+        "message": "[PASSED] Retrieval Recall@5: actual=1.0000 >= threshold=0.8000"
+      },
+      {
+        "gate_name": "Retrieval MRR",
+        "metric_key": "mrr",
+        "operator": ">=",
+        "threshold": 0.7,
+        "actual_value": 0.881,
+        "passed": true,
+        "critical": true,
+        "message": "[PASSED] Retrieval MRR: actual=0.8810 >= threshold=0.7000"
+      },
+      {
+        "gate_name": "Retrieval NDCG@5",
+        "metric_key": "ndcg_at_5",
+        "operator": ">=",
+        "threshold": 0.7,
+        "actual_value": 0.916,
+        "passed": true,
+        "critical": false,
+        "message": "[PASSED] Retrieval NDCG@5: actual=0.9160 >= threshold=0.7000"
+      },
+      {
+        "gate_name": "Answer Grounding Accuracy",
+        "metric_key": "grounding_accuracy",
+        "operator": ">=",
+        "threshold": 0.9,
+        "actual_value": 1.0,
+        "passed": true,
+        "critical": true,
+        "message": "[PASSED] Answer Grounding Accuracy: actual=1.0000 >= threshold=0.9000"
+      },
+      {
+        "gate_name": "Citation Validity Rate",
+        "metric_key": "citation_validity",
+        "operator": ">=",
+        "threshold": 0.95,
+        "actual_value": 1.0,
+        "passed": true,
+        "critical": true,
+        "message": "[PASSED] Citation Validity Rate: actual=1.0000 >= threshold=0.9500"
+      },
+      {
+        "gate_name": "Abstention Accuracy",
+        "metric_key": "abstention_accuracy",
+        "operator": ">=",
+        "threshold": 0.9,
+        "actual_value": 1.0,
+        "passed": true,
+        "critical": true,
+        "message": "[PASSED] Abstention Accuracy: actual=1.0000 >= threshold=0.9000"
+      },
+      {
+        "gate_name": "Agent p95 Latency",
+        "metric_key": "p95_latency_ms",
+        "operator": "<=",
+        "threshold": 12000.0,
+        "actual_value": 34.15,
+        "passed": true,
+        "critical": false,
+        "message": "[PASSED] Agent p95 Latency: actual=34.1500 <= threshold=12000.0000"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1692 @@
+{
+  "dataset_version": "1.0.0",
+  "timestamp": "2026-09-25T08:14:40.525442+00:00",
+  "environment": {
+    "os": "Windows",
+    "os_release": "10",
+    "machine": "AMD64",
+    "python_version": "3.11.9",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_provider": "fastembed",
+    "reranker_model": "BAAI/bge-reranker-base",
+    "reranker_provider": "bge",
+    "llm_model": "gpt-4o-mini",
+    "llm_provider": "mock",
+    "total_documents": 5,
+    "total_queries": 18
+  },
+  "total_queries": 18,
+  "evaluated_answered_queries": 14,
+  "evaluated_no_answer_queries": 4,
+  "ablation": [
+    {
+      "configuration": "Dense",
+      "recall_at_5": 0.9286,
+      "precision_at_5": 0.2286,
+      "mrr": 0.8571,
+      "ndcg_at_5": 0.8501,
+      "latency_ms": 14.39
+    },
+    {
+      "configuration": "BM25",
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2429,
+      "mrr": 0.9286,
+      "ndcg_at_5": 0.946,
+      "latency_ms": 0.6
+    },
+    {
+      "configuration": "Hybrid RRF",
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2429,
+      "mrr": 0.8929,
+      "ndcg_at_5": 0.9094,
+      "latency_ms": 14.96
+    },
+    {
+      "configuration": "Hybrid + Reranker",
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2429,
+      "mrr": 0.881,
+      "ndcg_at_5": 0.916,
+      "latency_ms": 2392.54
+    }
+  ],
+  "retrieval_configurations": {
+    "dense": {
+      "recall_at_1": 0.6786,
+      "recall_at_3": 0.8929,
+      "recall_at_5": 0.9286,
+      "recall_at_10": 1.0,
+      "precision_at_1": 0.7857,
+      "precision_at_3": 0.3571,
+      "precision_at_5": 0.2286,
+      "mrr": 0.8571,
+      "ndcg_at_5": 0.8501,
+      "ndcg_at_10": 0.8755,
+      "mean_latency_ms": 14.39
+    },
+    "bm25": {
+      "recall_at_1": 0.7857,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "precision_at_1": 0.8571,
+      "precision_at_3": 0.4048,
+      "precision_at_5": 0.2429,
+      "mrr": 0.9286,
+      "ndcg_at_5": 0.946,
+      "ndcg_at_10": 0.946,
+      "mean_latency_ms": 0.6
+    },
+    "hybrid_rrf": {
+      "recall_at_1": 0.6786,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "precision_at_1": 0.7857,
+      "precision_at_3": 0.4048,
+      "precision_at_5": 0.2429,
+      "mrr": 0.8929,
+      "ndcg_at_5": 0.9094,
+      "ndcg_at_10": 0.9094,
+      "mean_latency_ms": 14.96
+    },
+    "hybrid_reranker": {
+      "recall_at_1": 0.7143,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "precision_at_1": 0.7857,
+      "precision_at_3": 0.4048,
+      "precision_at_5": 0.2429,
+      "mrr": 0.881,
+      "ndcg_at_5": 0.916,
+      "ndcg_at_10": 0.916,
+      "mean_latency_ms": 2392.54
+    }
+  },
+  "latency_profile": {
+    "embedding_latency": {
+      "mean_ms": 41.9,
+      "median_ms": 46.14,
+      "p95_ms": 78.77,
+      "min_ms": 12.09,
+      "max_ms": 78.77,
+      "count": 18
+    },
+    "dense_search_latency": {
+      "mean_ms": 4.22,
+      "median_ms": 2.09,
+      "p95_ms": 21.33,
+      "min_ms": 1.82,
+      "max_ms": 21.33,
+      "count": 18
+    },
+    "bm25_search_latency": {
+      "mean_ms": 0.45,
+      "median_ms": 0.36,
+      "p95_ms": 0.92,
+      "min_ms": 0.21,
+      "max_ms": 0.92,
+      "count": 18
+    },
+    "fusion_latency": {
+      "mean_ms": 0.05,
+      "median_ms": 0.04,
+      "p95_ms": 0.08,
+      "min_ms": 0.03,
+      "max_ms": 0.08,
+      "count": 18
+    },
+    "reranking_latency": {
+      "mean_ms": 2731.13,
+      "median_ms": 2648.07,
+      "p95_ms": 3465.24,
+      "min_ms": 2372.04,
+      "max_ms": 3465.24,
+      "count": 18
+    },
+    "context_assembly_latency": {
+      "mean_ms": 2.68,
+      "median_ms": 0.6,
+      "p95_ms": 38.36,
+      "min_ms": 0.38,
+      "max_ms": 38.36,
+      "count": 18
+    },
+    "generation_latency": {
+      "mean_ms": 0.62,
+      "median_ms": 0.53,
+      "p95_ms": 2.26,
+      "min_ms": 0.26,
+      "max_ms": 2.26,
+      "count": 18
+    },
+    "citation_verification_latency": {
+      "mean_ms": 0.33,
+      "median_ms": 0.32,
+      "p95_ms": 0.83,
+      "min_ms": 0.04,
+      "max_ms": 0.83,
+      "count": 18
+    },
+    "total_pipeline_latency": {
+      "mean_ms": 2782.38,
+      "median_ms": 2702.2,
+      "p95_ms": 3494.65,
+      "min_ms": 2423.55,
+      "max_ms": 3494.65,
+      "count": 18
+    }
+  },
+  "generation_metrics": {
+    "total_answered_queries": 14,
+    "mean_answer_completeness": 0.4067,
+    "mean_evidence_grounding_score": 1.0,
+    "mean_reference_token_overlap": 0.3294
+  },
+  "citation_metrics": {
+    "total_queries_evaluated": 14,
+    "total_claims": 28,
+    "total_citations": 28,
+    "citation_validity_rate": 1.0,
+    "citation_support_rate": 1.0,
+    "citation_coverage_rate": 1.0,
+    "unsupported_claim_rate": 0.0,
+    "partially_supported_rate": 0.0
+  },
+  "abstention_metrics": {
+    "total_no_answer_queries": 4,
+    "correct_abstentions": 4,
+    "incorrect_answers": 0,
+    "unsupported_answers": 0,
+    "abstention_accuracy": 1.0
+  },
+  "auditable_traces": [
+    {
+      "query_id": "q_fact_01",
+      "query": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Benchmark Results.",
+          "evidence_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "evidence_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "9cdb6978-d8fe-4228-9da8-d09da6210bb3",
+          "document_id": "8c042ff2-7a30-41db-ad42-eee40de1dd47",
+          "page_number": 1,
+          "section_title": "Benchmark Results",
+          "section_path": "Enterprise Knowledge Platform > Benchmark Results",
+          "score": 0.991342,
+          "formatted_citation": "[Doc: 8c042ff2 | Page: 1 | Section: Enterprise Knowledge Platform > Benchmark Results]",
+          "snippet": "Enterprise Knowledge Platform\n\nThis platform indexes enterprise documents with structure preservation.\n\nSupported Formats\n\nPDF documents with page cit..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "b0391098-d5e2-441a-8121-fb814591e689",
+          "document_id": "fff1798d-95d6-4c0d-8eda-0bbbec5c4dae",
+          "page_number": 1,
+          "section_title": "Methodology",
+          "section_path": "Research Findings Report > Methodology",
+          "score": 0.000577,
+          "formatted_citation": "[Doc: fff1798d | Page: 1 | Section: Research Findings Report > Methodology]",
+          "snippet": "Research Findings Report\n\nThis document outlines the findings of our multi-document evaluation.\n\nMethodology\n\nWe evaluated 50 benchmark queries across..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Benchmark Results.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "verified_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "verified_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Benchmark Results.",
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "valid_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "valid_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_fact_02",
+      "query": "What is the NDCG@10 metric score reported in the research findings report?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Research Findings Report.",
+          "evidence_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.000235,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "b0391098-d5e2-441a-8121-fb814591e689",
+          "document_id": "fff1798d-95d6-4c0d-8eda-0bbbec5c4dae",
+          "page_number": 1,
+          "section_title": "Methodology",
+          "section_path": "Research Findings Report > Methodology",
+          "score": 0.999225,
+          "formatted_citation": "[Doc: fff1798d | Page: 1 | Section: Research Findings Report > Methodology]",
+          "snippet": "Research Findings Report\n\nThis document outlines the findings of our multi-document evaluation.\n\nMethodology\n\nWe evaluated 50 benchmark queries across..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Research Findings Report.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "verified_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Research Findings Report.",
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "valid_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Executive Summary.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_fact_03",
+      "query": "What future capability is required for scanned documents according to the limitations?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Scanned documents require future OCR capabilities.",
+          "evidence_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c",
+          "document_id": "9e36ec73-0f1e-4420-b969-12755570a0c3",
+          "page_number": 1,
+          "section_title": "Limitations",
+          "section_path": "Enterprise Copilot Specification > Core Capabilities > Limitations",
+          "score": 0.996228,
+          "formatted_citation": "[Doc: 9e36ec73 | Page: 1 | Section: Enterprise Copilot Specification > Core Capabilities > Limitations]",
+          "snippet": "Enterprise Copilot Specification\n\nOverview\n\nThe system provides grounded answers with source citations.\n\nCore Capabilities\n\nHybrid dense and sparse se..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.000166,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Scanned documents require future OCR capabilities.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "verified_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Scanned documents require future OCR capabilities.",
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "valid_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Executive Summary.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_sec_01",
+      "query": "What does the Executive Summary section state in the plain text specification?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Markdown and plain text specifications.",
+          "evidence_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "evidence_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "5c017683-d85c-4b25-a717-23a7514251fa",
+          "document_id": "1b21abd7-c615-452d-a0b5-83e878f30a7a",
+          "page_number": 1,
+          "section_title": null,
+          "section_path": null,
+          "score": 0.006654,
+          "formatted_citation": "[Doc: 1b21abd7 | Page: 1 | Section: General]",
+          "snippet": "1. Executive Summary\nThis is page 1 content."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "9cdb6978-d8fe-4228-9da8-d09da6210bb3",
+          "document_id": "8c042ff2-7a30-41db-ad42-eee40de1dd47",
+          "page_number": 1,
+          "section_title": "Benchmark Results",
+          "section_path": "Enterprise Knowledge Platform > Benchmark Results",
+          "score": 0.013061,
+          "formatted_citation": "[Doc: 8c042ff2 | Page: 1 | Section: Enterprise Knowledge Platform > Benchmark Results]",
+          "snippet": "Enterprise Knowledge Platform\n\nThis platform indexes enterprise documents with structure preservation.\n\nSupported Formats\n\nPDF documents with page cit..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Markdown and plain text specifications.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "verified_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "verified_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Markdown and plain text specifications.",
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "valid_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Executive Summary.",
+          "cited_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "valid_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_sec_02",
+      "query": "What content is located under Methodology on page 2 of the PDF document?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Methodology.",
+          "evidence_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "This is page 1 content.",
+          "evidence_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "29e58cab-1c32-4222-8c45-a0758f53d64f",
+          "document_id": "1b21abd7-c615-452d-a0b5-83e878f30a7a",
+          "page_number": 2,
+          "section_title": null,
+          "section_path": null,
+          "score": 0.994451,
+          "formatted_citation": "[Doc: 1b21abd7 | Page: 2 | Section: General]",
+          "snippet": "2. Methodology\nThis is page 2 content."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "5c017683-d85c-4b25-a717-23a7514251fa",
+          "document_id": "1b21abd7-c615-452d-a0b5-83e878f30a7a",
+          "page_number": 1,
+          "section_title": null,
+          "section_path": null,
+          "score": 0.000928,
+          "formatted_citation": "[Doc: 1b21abd7 | Page: 1 | Section: General]",
+          "snippet": "1. Executive Summary\nThis is page 1 content."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Methodology.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "verified_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "This is page 1 content.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "verified_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Methodology.",
+          "cited_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "valid_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "This is page 1 content.",
+          "cited_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "valid_chunk_ids": [
+            "5c017683-d85c-4b25-a717-23a7514251fa"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_sec_03",
+      "query": "What is described in the Overview section of the copilot specification?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Enterprise Copilot Specification.",
+          "evidence_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c",
+          "document_id": "9e36ec73-0f1e-4420-b969-12755570a0c3",
+          "page_number": 1,
+          "section_title": "Limitations",
+          "section_path": "Enterprise Copilot Specification > Core Capabilities > Limitations",
+          "score": 0.021683,
+          "formatted_citation": "[Doc: 9e36ec73 | Page: 1 | Section: Enterprise Copilot Specification > Core Capabilities > Limitations]",
+          "snippet": "Enterprise Copilot Specification\n\nOverview\n\nThe system provides grounded answers with source citations.\n\nCore Capabilities\n\nHybrid dense and sparse se..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.071728,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Enterprise Copilot Specification.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "verified_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Enterprise Copilot Specification.",
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "valid_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_tech_01",
+      "query": "def query_copilot(prompt: str) -> str return 'Answer with citations'",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "def query_copilot(prompt: str) -> str:.",
+          "evidence_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "All claims are verified with source page and section citations.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c",
+          "document_id": "9e36ec73-0f1e-4420-b969-12755570a0c3",
+          "page_number": 1,
+          "section_title": "Limitations",
+          "section_path": "Enterprise Copilot Specification > Core Capabilities > Limitations",
+          "score": 0.999117,
+          "formatted_citation": "[Doc: 9e36ec73 | Page: 1 | Section: Enterprise Copilot Specification > Core Capabilities > Limitations]",
+          "snippet": "Enterprise Copilot Specification\n\nOverview\n\nThe system provides grounded answers with source citations.\n\nCore Capabilities\n\nHybrid dense and sparse se..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.023954,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "def query_copilot(prompt: str) -> str:.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "verified_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "All claims are verified with source page and section citations.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "def query_copilot(prompt: str) -> str:.",
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "valid_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "All claims are verified with source page and section citations.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_tech_02",
+      "query": "NDCG@10 0.89 50 benchmark queries",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "evidence_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Benchmark Results.",
+          "evidence_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "9cdb6978-d8fe-4228-9da8-d09da6210bb3",
+          "document_id": "8c042ff2-7a30-41db-ad42-eee40de1dd47",
+          "page_number": 1,
+          "section_title": "Benchmark Results",
+          "section_path": "Enterprise Knowledge Platform > Benchmark Results",
+          "score": 0.00136,
+          "formatted_citation": "[Doc: 8c042ff2 | Page: 1 | Section: Enterprise Knowledge Platform > Benchmark Results]",
+          "snippet": "Enterprise Knowledge Platform\n\nThis platform indexes enterprise documents with structure preservation.\n\nSupported Formats\n\nPDF documents with page cit..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "b0391098-d5e2-441a-8121-fb814591e689",
+          "document_id": "fff1798d-95d6-4c0d-8eda-0bbbec5c4dae",
+          "page_number": 1,
+          "section_title": "Methodology",
+          "section_path": "Research Findings Report > Methodology",
+          "score": 0.930258,
+          "formatted_citation": "[Doc: fff1798d | Page: 1 | Section: Research Findings Report > Methodology]",
+          "snippet": "Research Findings Report\n\nThis document outlines the findings of our multi-document evaluation.\n\nMethodology\n\nWe evaluated 50 benchmark queries across..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "verified_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Benchmark Results.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "verified_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "valid_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Benchmark Results.",
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "valid_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_tech_03",
+      "query": "Reciprocal rank fusion and citation verification agent",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Reciprocal rank fusion.",
+          "evidence_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c",
+          "document_id": "9e36ec73-0f1e-4420-b969-12755570a0c3",
+          "page_number": 1,
+          "section_title": "Limitations",
+          "section_path": "Enterprise Copilot Specification > Core Capabilities > Limitations",
+          "score": 0.995191,
+          "formatted_citation": "[Doc: 9e36ec73 | Page: 1 | Section: Enterprise Copilot Specification > Core Capabilities > Limitations]",
+          "snippet": "Enterprise Copilot Specification\n\nOverview\n\nThe system provides grounded answers with source citations.\n\nCore Capabilities\n\nHybrid dense and sparse se..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.00154,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Reciprocal rank fusion.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "verified_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Executive Summary.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Reciprocal rank fusion.",
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "valid_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Executive Summary.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_sem_01",
+      "query": "How does the platform combine diverse search mechanisms to achieve high precision?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "It provides high precision across complex multi-document queries.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Enterprise Knowledge Platform.",
+          "evidence_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "9cdb6978-d8fe-4228-9da8-d09da6210bb3",
+          "document_id": "8c042ff2-7a30-41db-ad42-eee40de1dd47",
+          "page_number": 1,
+          "section_title": "Benchmark Results",
+          "section_path": "Enterprise Knowledge Platform > Benchmark Results",
+          "score": 0.000175,
+          "formatted_citation": "[Doc: 8c042ff2 | Page: 1 | Section: Enterprise Knowledge Platform > Benchmark Results]",
+          "snippet": "Enterprise Knowledge Platform\n\nThis platform indexes enterprise documents with structure preservation.\n\nSupported Formats\n\nPDF documents with page cit..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.188489,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "It provides high precision across complex multi-document queries.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Enterprise Knowledge Platform.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "verified_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "It provides high precision across complex multi-document queries.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Enterprise Knowledge Platform.",
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "valid_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_sem_02",
+      "query": "What types of enterprise file extensions and document layouts can be processed?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Enterprise Knowledge Platform.",
+          "evidence_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "9cdb6978-d8fe-4228-9da8-d09da6210bb3",
+          "document_id": "8c042ff2-7a30-41db-ad42-eee40de1dd47",
+          "page_number": 1,
+          "section_title": "Benchmark Results",
+          "section_path": "Enterprise Knowledge Platform > Benchmark Results",
+          "score": 0.054703,
+          "formatted_citation": "[Doc: 8c042ff2 | Page: 1 | Section: Enterprise Knowledge Platform > Benchmark Results]",
+          "snippet": "Enterprise Knowledge Platform\n\nThis platform indexes enterprise documents with structure preservation.\n\nSupported Formats\n\nPDF documents with page cit..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.004884,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Enterprise Knowledge Platform.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "verified_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Enterprise Knowledge Platform.",
+          "cited_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "valid_chunk_ids": [
+            "9cdb6978-d8fe-4228-9da8-d09da6210bb3"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_sem_03",
+      "query": "What scale of testing was performed during the research evaluation study?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "Research Findings Report.",
+          "evidence_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Methodology.",
+          "evidence_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "29e58cab-1c32-4222-8c45-a0758f53d64f",
+          "document_id": "1b21abd7-c615-452d-a0b5-83e878f30a7a",
+          "page_number": 2,
+          "section_title": null,
+          "section_path": null,
+          "score": 0.00072,
+          "formatted_citation": "[Doc: 1b21abd7 | Page: 2 | Section: General]",
+          "snippet": "2. Methodology\nThis is page 2 content."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "b0391098-d5e2-441a-8121-fb814591e689",
+          "document_id": "fff1798d-95d6-4c0d-8eda-0bbbec5c4dae",
+          "page_number": 1,
+          "section_title": "Methodology",
+          "section_path": "Research Findings Report > Methodology",
+          "score": 0.002298,
+          "formatted_citation": "[Doc: fff1798d | Page: 1 | Section: Research Findings Report > Methodology]",
+          "snippet": "Research Findings Report\n\nThis document outlines the findings of our multi-document evaluation.\n\nMethodology\n\nWe evaluated 50 benchmark queries across..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "Research Findings Report.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "verified_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Methodology.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "verified_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "Research Findings Report.",
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "valid_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Methodology.",
+          "cited_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "valid_chunk_ids": [
+            "29e58cab-1c32-4222-8c45-a0758f53d64f"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_multi_01",
+      "query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "The architecture combines dense vector retrieval, lexical BM25 matching, and structure-aware chunking.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "evidence_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.11332,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "b0391098-d5e2-441a-8121-fb814591e689",
+          "document_id": "fff1798d-95d6-4c0d-8eda-0bbbec5c4dae",
+          "page_number": 1,
+          "section_title": "Methodology",
+          "section_path": "Research Findings Report > Methodology",
+          "score": 0.037407,
+          "formatted_citation": "[Doc: fff1798d | Page: 1 | Section: Research Findings Report > Methodology]",
+          "snippet": "Research Findings Report\n\nThis document outlines the findings of our multi-document evaluation.\n\nMethodology\n\nWe evaluated 50 benchmark queries across..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "The architecture combines dense vector retrieval, lexical BM25 matching, and structure-aware chunking.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "verified_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "The architecture combines dense vector retrieval, lexical BM25 matching, and structure-aware chunking.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "We evaluated 50 benchmark queries across dense and lexical retrieval modes.",
+          "cited_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "valid_chunk_ids": [
+            "b0391098-d5e2-441a-8121-fb814591e689"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    },
+    {
+      "query_id": "q_multi_02",
+      "query": "How is citation verification and grounded claim validation handled across the documents?",
+      "claims": [
+        {
+          "claim_id": "C1",
+          "text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "evidence_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "text": "Citation verification agent.",
+          "evidence_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "CIT-1",
+          "chunk_id": "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c",
+          "document_id": "9e36ec73-0f1e-4420-b969-12755570a0c3",
+          "page_number": 1,
+          "section_title": "Limitations",
+          "section_path": "Enterprise Copilot Specification > Core Capabilities > Limitations",
+          "score": 0.058333,
+          "formatted_citation": "[Doc: 9e36ec73 | Page: 1 | Section: Enterprise Copilot Specification > Core Capabilities > Limitations]",
+          "snippet": "Enterprise Copilot Specification\n\nOverview\n\nThe system provides grounded answers with source citations.\n\nCore Capabilities\n\nHybrid dense and sparse se..."
+        },
+        {
+          "citation_id": "CIT-2",
+          "chunk_id": "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd",
+          "document_id": "8a7c5d4d-bf3f-4a3b-89c7-c94e3e16c203",
+          "page_number": 1,
+          "section_title": "3. Conclusion",
+          "section_path": "3. Conclusion",
+          "score": 0.414306,
+          "formatted_citation": "[Doc: 8a7c5d4d | Page: 1 | Section: 3. Conclusion]",
+          "snippet": "1. Executive Summary\n\nThis is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.\n\n2. Architecture\n\nThe..."
+        }
+      ],
+      "claim_verifications": [
+        {
+          "claim_id": "C1",
+          "text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "verified_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_id": "C2",
+          "text": "Citation verification agent.",
+          "status": "supported",
+          "support_score": 1.0,
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "verified_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "missing_chunk_ids": [],
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ],
+      "claim_audits": [
+        {
+          "claim_index": 1,
+          "claim_text": "This is an enterprise knowledge copilot designed for production agentic retrieval and grounded reasoning.",
+          "cited_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "valid_chunk_ids": [
+            "a7b6e2bd-2e5c-4004-aa46-ab9085f66cfd"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        },
+        {
+          "claim_index": 2,
+          "claim_text": "Citation verification agent.",
+          "cited_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "valid_chunk_ids": [
+            "66054f2b-a3d5-4e11-b8e6-285fbb4dd33c"
+          ],
+          "hallucinated_chunk_ids": [],
+          "has_hallucinated_citations": false,
+          "verification_status": "supported",
+          "support_score": 1.0,
+          "rationale": "Claim supported by evidence (100.0% textual overlap)."
+        }
+      ]
+    }
+  ]
+}

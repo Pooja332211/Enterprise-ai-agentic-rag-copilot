@@ -1,0 +1,140 @@
+{
+  "version": "1.0.0",
+  "dataset_name": "Enterprise AI Copilot Performance & Latency Benchmark",
+  "description": "12 representative production queries covering all 8 query categories for empirical latency profiling, cache efficiency, and quality gating.",
+  "created_at": "2026-09-25T15:30:00Z",
+  "queries": [
+    {
+      "query_id": "perf_fact_01",
+      "query": "What is the accuracy of Hybrid RAG reported in the benchmark results table?",
+      "query_type": "simple_factual",
+      "complexity": "low",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.html"],
+      "description": "Exact tabular factual lookup in HTML specs."
+    },
+    {
+      "query_id": "perf_fact_02",
+      "query": "What is the NDCG@10 metric score reported in the research findings report?",
+      "query_type": "simple_factual",
+      "complexity": "low",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.docx"],
+      "description": "Factual metric extraction from DOCX findings."
+    },
+    {
+      "query_id": "perf_sem_01",
+      "query": "How does the platform handle document ingestion and structure extraction across formats?",
+      "query_type": "semantic_lookup",
+      "complexity": "medium",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.md", "sample.html"],
+      "description": "Semantic conceptual query requiring dense retrieval understanding."
+    },
+    {
+      "query_id": "perf_tech_01",
+      "query": "What is the exact chunking threshold and token overlap configured in the system specification?",
+      "query_type": "technical_keyword",
+      "complexity": "medium",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.md"],
+      "description": "Technical keyword match requiring BM25 lexical precision."
+    },
+    {
+      "query_id": "perf_sec_01",
+      "query": "What does the Limitations section state about optical character recognition?",
+      "query_type": "section_lookup",
+      "complexity": "low",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.md"],
+      "description": "Section-specific lookup targeting markdown heading."
+    },
+    {
+      "query_id": "perf_comp_01",
+      "query": "Compare the benchmark accuracy of Hybrid RAG versus Dense Only retrieval in the benchmark results",
+      "query_type": "comparison",
+      "complexity": "medium",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.html"],
+      "description": "Comparative analysis across benchmark results."
+    },
+    {
+      "query_id": "perf_comp_02",
+      "query": "Compare the capabilities described in the Overview versus the Limitations in the copilot specification",
+      "query_type": "comparison",
+      "complexity": "medium",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.md"],
+      "description": "Comparative synthesis across distinct document sections."
+    },
+    {
+      "query_id": "perf_multi_doc_01",
+      "query": "What retrieval techniques and accuracy numbers are detailed across the architecture specification and research reports?",
+      "query_type": "multi_document",
+      "complexity": "high",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.docx", "sample.html"],
+      "description": "Multi-document synthesis spanning DOCX and HTML reports."
+    },
+    {
+      "query_id": "perf_multi_doc_02",
+      "query": "What are the core architecture requirements and the supported ingestion formats defined across all documents?",
+      "query_type": "multi_document",
+      "complexity": "high",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.md", "sample.html", "sample.txt"],
+      "description": "Corpus-wide multi-document aggregation."
+    },
+    {
+      "query_id": "perf_hop_01",
+      "query": "Which document format requires OCR and what is the current milestone roadmap status for it?",
+      "query_type": "multi_hop",
+      "complexity": "high",
+      "expected_decomposition": true,
+      "expected_subqueries": 2,
+      "expected_abstention": false,
+      "relevant_document_filenames": ["sample.md"],
+      "description": "Two-hop entity reasoning from limitation to roadmap milestone."
+    },
+    {
+      "query_id": "perf_abstain_01",
+      "query": "What was Acme Corporation's fourth-quarter revenue in 2019?",
+      "query_type": "no_answer",
+      "complexity": "low",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": true,
+      "relevant_document_filenames": [],
+      "description": "Completely out-of-corpus query requiring clean non-hallucinated abstention."
+    },
+    {
+      "query_id": "perf_abstain_02",
+      "query": "What are the planetary atmospheric composition ratios for Kepler-452b?",
+      "query_type": "no_answer",
+      "complexity": "low",
+      "expected_decomposition": false,
+      "expected_subqueries": 1,
+      "expected_abstention": true,
+      "relevant_document_filenames": [],
+      "description": "Astronomy domain-gap query testing sufficiency evaluator rejection."
+    }
+  ]
+}
