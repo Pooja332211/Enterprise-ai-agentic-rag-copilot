@@ -232,14 +232,14 @@ docker compose up -d --build
 
 ## 8. Milestone Completion Log
 
-- [x] **Milestone 1**: System Scaffolding, Configuration, DB Models & Vector Abstraction
-- [x] **Milestone 2**: Multi-Format Document Ingestion, Hierarchy-Aware Parsing & Chunking
-- [x] **Milestone 3**: Dense Vector (FastEmbed) + Lexical (BM25) Hybrid Retrieval via RRF
-- [x] **Milestone 4**: Neural Cross-Encoder Reranking & Context Assembly Service
-- [x] **Milestone 5**: Grounded RAG Generation, Multi-Provider LLMs & Citation Verification
-- [x] **Milestone 6**: Systematic Evaluation Harness, Relevancy Masking & Retrieval Ablation
-- [x] **Milestone 7**: Controlled QLoRA Domain Adaptation Subsystem & Leakage Auditing
-- [x] **Milestone 8**: Query Planning & LangGraph Agent State Machines
-- [x] **Milestone 9**: Production Observability (`/metrics`), Bounded Caching & Reranker Optimization
-- [x] **Milestone 10**: Productionization, Deployment, Connection Pooling & Reliability
-- [x] **Milestone 11**: Final Portfolio Hardening, Architecture Documentation & Release Preparation
+- [x] **1**: System Scaffolding, Configuration, DB Models & Vector Abstraction
+- [x] **2**: Multi-Format Document Ingestion, Hierarchy-Aware Parsing & Chunking
+- [x] **3**: Dense Vector (FastEmbed) + Lexical (BM25) Hybrid Retrieval via RRF
+- [x] **4**: Neural Cross-Encoder Reranking & Context Assembly Service
+- [x] **5**: Grounded RAG Generation, Multi-Provider LLMs & Citation Verification
+- [x] **6**: Systematic Evaluation Harness, Relevancy Masking & Retrieval Ablation
+- [x] **7**: Controlled QLoRA Domain Adaptation Subsystem & Leakage Auditing
+- [x] **8**: Query Planning & LangGraph Agent State Machines
+- [x] **9**: Production Observability (`/metrics`), Bounded Caching & Reranker Optimization
+- [x] **10**: Productionization, Deployment, Connection Pooling & Reliability
+- [x] **11**: Final Portfolio Hardening, Architecture Documentation & Release Preparation
